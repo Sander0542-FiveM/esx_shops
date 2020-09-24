@@ -40,12 +40,12 @@ function OpenShopMenu(zone)
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop', {
 		title    = _U('shop'),
-		align    = 'bottom-right',
+		align    = 'top-left',
 		elements = elements
 	}, function(data, menu)
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop_confirm', {
 			title    = _U('shop_confirm', data.current.value, data.current.itemLabel, ESX.Math.GroupDigits(data.current.price * data.current.value)),
-			align    = 'bottom-right',
+			align    = 'top-left',
 			elements = {
 				{label = _U('no'),  value = 'no'},
 				{label = _U('yes'), value = 'yes'}
