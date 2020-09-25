@@ -82,16 +82,18 @@ end)
 Citizen.CreateThread(function()
 	for k,v in pairs(Config.Zones) do
 		for i = 1, #v.Pos, 1 do
-			local blip = AddBlipForCoord(v.Pos[i].x, v.Pos[i].y, v.Pos[i].z)
+			if not v.HideBlip then
+				local blip = AddBlipForCoord(v.Pos[i].x, v.Pos[i].y, v.Pos[i].z)
 
-			SetBlipSprite (blip, 52)
-			SetBlipScale  (blip, 1.0)
-			SetBlipColour (blip, 2)
-			SetBlipAsShortRange(blip, true)
+				SetBlipSprite (blip, 52)
+				SetBlipScale  (blip, 1.0)
+				SetBlipColour (blip, 2)
+				SetBlipAsShortRange(blip, true)
 
-			BeginTextCommandSetBlipName('STRING')
-			AddTextComponentSubstringPlayerName(_U('shops'))
-			EndTextCommandSetBlipName(blip)
+				BeginTextCommandSetBlipName('STRING')
+				AddTextComponentSubstringPlayerName(_U('shops'))
+				EndTextCommandSetBlipName(blip)
+			end
 		end
 	end
 end)
